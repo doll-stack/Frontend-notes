@@ -1,0 +1,832 @@
+/* ==================================================
+       1. CSS SYNTAX
+       ================================================== */
+
+/*
+       selector {
+           property: value;
+       }
+
+       Selector = HTML element to target
+       Property = What to change
+       Value = How to change it
+    */
+
+/* ==================================================
+       2. CSS RESET & UNIVERSAL SELECTOR
+       ================================================== */
+
+* {
+    margin: 0;
+    /* Removes default outer spacing */
+    padding: 0;
+    /* Removes default inner spacing */
+    box-sizing: border-box;
+    /* Includes padding and border in width */
+}
+
+/* ==================================================
+       3. ROOT & CSS VARIABLES -> CUSTOM PROPERTIES
+       ================================================== */
+
+:root {
+    /* Custom properties can be reused anywhere */
+    --primary: #2563eb;
+    --secondary: #111827;
+    --background: #f3f4f6;
+    --text: #333333;
+    --spacing: 20px;
+    --radius: 12px;
+}
+
+/* ==================================================
+       4. BASIC SELECTORS -> ELEMENT, CLASS, ID, GROUPING, UNIVERSAL
+       ================================================== */
+
+/* Element selector */
+p {
+    color: var(--text);
+}
+
+/* Class selector */
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+/* ID selector */
+#main-heading {
+    color: var(--primary);
+}
+
+/* Grouping selector */
+h1, h2, h3 {
+    font-family: Arial, sans-serif;
+}
+
+/* Universal selector */
+* {
+    scroll-behavior: smooth;
+}
+
+/* ==================================================
+       5. COMBINATOR SELECTORS
+       ================================================== */
+
+/* Descendant: All p inside div */
+div p {
+    color: gray;
+}
+
+/* Child: Only direct p children */
+div>p {
+    color: black;
+}
+
+/* Adjacent sibling: First p after h2 */
+h2+p {
+    margin-top: 10px;
+}
+
+/* General sibling: All p after h2 */
+h2~p {
+    line-height: 1.6;
+}
+
+/* Attribute selector */
+input[type="text"] {
+    border: 1px solid gray;
+}
+
+/* ==================================================
+       6. COLORS
+       ================================================== */
+
+.colors {
+    color: red;
+    /* Color name */
+    color: #ff0000;
+    /* HEX */
+    color: rgb(255, 0, 0);
+    /* RGB */
+    color: rgba(255, 0, 0, 0.5);
+    /* RGBA */
+    color: hsl(0, 100%, 50%);
+    /* HSL */
+}
+
+/* ==================================================
+       7. BACKGROUND PROPERTIES
+       ================================================== */
+
+.background {
+    background-color: lightblue;
+
+    background-image: url("image.jpg");
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+}
+
+/* ==================================================
+       8. CSS UNITS
+       ================================================== */
+
+.units {
+    width: 300px;
+    /* Fixed pixel size */
+
+    width: 50%;
+    /* Relative to containing block */
+
+    width: 50vw;
+    /* 50% viewport width */
+
+    height: 50vh;
+    /* 50% viewport height */
+
+    font-size: 2rem;
+    /* Relative to root font size */
+
+    padding: 2em;
+    /* Relative to element font size */
+
+    width: 10vmin;
+    /* Smaller viewport dimension */
+
+    width: 10vmax;
+    /* Larger viewport dimension */
+}
+
+/* ==================================================
+       9. TYPOGRAPHY -> FONT PROPERTIES
+       ================================================== */
+
+.typography {
+    font-family: Arial, sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+    /* 100 to 900 */
+
+    font-style: italic;
+
+    line-height: 1.5;
+    /* Space between lines */
+
+    letter-spacing: 2px;
+    /* Space between letters */
+
+    word-spacing: 5px;
+    /* Space between words */
+
+    text-align: center;
+    /* left, right, center, justify */
+
+    text-transform: uppercase;
+
+    text-decoration: underline;
+
+    text-indent: 30px;
+
+    direction: ltr;
+}
+
+/* ==================================================
+       10. BOX MODEL -> PADDING, BORDER, MARGIN
+       ================================================== */
+
+.box {
+    width: 300px;
+    height: 200px;
+
+    padding: 20px;
+    /* Inside spacing */
+
+    border: 2px solid black;
+    /* Border */
+
+    margin: 30px;
+    /* Outside spacing */
+
+    border-radius: 15px;
+    /* Rounded corners */
+
+    /* Individual padding */
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+
+    /* Individual margins */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Box sizing */
+.box-sizing {
+    box-sizing: content-box;
+    /* Width excludes padding and border */
+
+    box-sizing: border-box;
+    /* Width includes padding and border */
+}
+
+/* ==================================================
+       11. BORDERS & SHADOWS -> BORDER, BORDER-RADIUS, BOX-SHADOW, TEXT-SHADOW, OUTLINE
+       ================================================== */
+
+.border {
+    border: 2px solid black;
+
+    border-top: 2px dashed red;
+
+    border-bottom: 3px dotted blue;
+
+    border-radius: 20px;
+
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    text-shadow: 2px 2px 4px gray;
+
+    outline: 2px solid red;
+
+    outline-offset: 5px;
+}
+
+/* ==================================================
+       12. DISPLAY PROPERTY -> BLOCK, INLINE, INLINE-BLOCK, NONE, VISIBILITY
+       ================================================== */
+
+.block {
+    display: block;
+    /* Takes full available width */
+}
+
+.inline {
+    display: inline;
+    /* Takes content width */
+}
+
+.inline-block {
+    display: inline-block;
+    /* Inline + width and height */
+}
+
+.hidden {
+    display: none;
+    /* Removes from layout */
+}
+
+.invisible {
+    visibility: hidden;
+    /* Keeps layout space */
+}
+
+/* ==================================================
+       13. POSITION PROPERTY -> STATIC, RELATIVE, ABSOLUTE, FIXED, STICKY
+       ================================================== */
+
+.static {
+    position: static;
+    /* Default positioning */
+}
+
+.relative {
+    position: relative;
+
+    top: 10px;
+    left: 20px;
+    /* Moves relative to original position */
+}
+
+.absolute {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    /* Relative to nearest positioned ancestor */
+}
+
+.fixed {
+    position: fixed;
+
+    bottom: 20px;
+    right: 20px;
+    /* Fixed relative to viewport */
+}
+
+.sticky {
+    position: sticky;
+
+    top: 0;
+    /* Sticks after reaching threshold */
+}
+
+/* Controls stacking order */
+.layer {
+    position: relative;
+    z-index: 10;
+}
+
+/* ==================================================
+       14. FLEXBOX -> FLEX CONTAINER, FLEX ITEM, ALIGNMENT, ORDER, GAPS
+       ================================================== */
+
+.flex-container {
+    display: flex;
+    /* Enables Flexbox */
+
+    flex-direction: row;
+    /* row, column, row-reverse */
+
+    flex-wrap: wrap;
+    /* Allows items to wrap */
+
+    flex-flow: row wrap;
+    /* Direction + wrapping */
+
+    justify-content: center;
+    /* Main-axis alignment */
+
+    align-items: center;
+    /* Cross-axis alignment */
+
+    align-content: center;
+    /* Alignment of multiple rows */
+
+    gap: 20px;
+    /* Space between items */
+}
+
+.flex-item {
+    flex-grow: 1;
+    /* Ability to grow */
+
+    flex-shrink: 1;
+    /* Ability to shrink */
+
+    flex-basis: 200px;
+    /* Initial size */
+
+    align-self: center;
+    /* Individual alignment */
+
+    order: 2;
+    /* Visual order */
+}
+
+/* ==================================================
+       15. CSS GRID -> GRID CONTAINER, GRID ITEM, GRID LINES, GRID AREAS
+       ================================================== */
+
+.grid-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+    /* Three equal columns */
+
+    grid-template-rows: 100px 200px;
+
+    gap: 20px;
+
+    row-gap: 10px;
+
+    column-gap: 20px;
+
+    justify-items: center;
+
+    align-items: center;
+
+    place-items: center;
+    /* Align both axes */
+
+    grid-auto-flow: row;
+}
+
+.grid-item {
+    grid-column: 1 / 3;
+    /* Occupies column lines 1 to 3 */
+
+    grid-row: 1 / 3;
+    /* Occupies row lines 1 to 3 */
+}
+
+/* Automatic responsive grid */
+.auto-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ==================================================
+       16. PSEUDO CLASSES -> HOVER, ACTIVE, FOCUS, FIRST-CHILD, LAST-CHILD, NTH-CHILD, CHECKED, DISABLED
+       ================================================== */
+
+button:hover {
+    background: blue;
+    /* Mouse hover */
+}
+
+button:active {
+    transform: scale(0.95);
+    /* While being pressed */
+}
+
+input:focus {
+    outline: 2px solid blue;
+}
+
+li:first-child {
+    color: red;
+}
+
+li:last-child {
+    color: green;
+}
+
+li:nth-child(2) {
+    color: blue;
+}
+
+li:nth-child(even) {
+    background: lightgray;
+}
+
+li:nth-child(odd) {
+    background: white;
+}
+
+input:checked {
+    accent-color: green;
+}
+
+input:disabled {
+    opacity: 0.5;
+}
+
+/* ==================================================
+       17. PSEUDO ELEMENTS 
+       ================================================== */
+
+p::first-letter {
+    font-size: 30px;
+}
+
+p::first-line {
+    font-weight: bold;
+}
+
+h1::before {
+    content: "★ ";
+    color: gold;
+}
+
+h1::after {
+    content: " →";
+}
+
+::selection {
+    background: black;
+    color: white;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+/* ==================================================
+       18. TRANSITIONS -> TRANSITION-PROPERTY, TRANSITION-DURATION, TRANSITION-TIMING-FUNCTION, TRANSITION-DELAY
+       ================================================== */
+
+.transition {
+    background: blue;
+
+    transition: all 0.3s ease;
+
+    /* Individual properties */
+    transition-property: transform;
+
+    transition-duration: 0.5s;
+
+    transition-timing-function: ease-in-out;
+
+    transition-delay: 0.2s;
+}
+
+.transition:hover {
+    background: red;
+
+    transform: scale(1.1);
+}
+
+/* ==================================================
+       19. TRANSFORM -> TRANSLATE, ROTATE, SCALE, SKEW
+       ================================================== */
+
+.transform {
+    transform: translate(20px, 30px);
+
+    /* Other examples:
+        transform: translateX(20px);
+        transform: translateY(20px);
+        transform: rotate(45deg);
+        transform: scale(1.2);
+        transform: skew(10deg);
+        transform: rotateY(180deg);
+        */
+
+    /* Multiple transforms can be combined */
+    transform: translateX(20px) rotate(10deg) scale(1.1);
+}
+
+/* ==================================================
+       20. ANIMATIONS -> KEYFRAMES, ANIMATION-PROPERTY, ANIMATION-DURATION, ANIMATION-TIMING-FUNCTION, ANIMATION-DELAY, ANIMATION-ITERATION-COUNT, ANIMATION-DIRECTION, ANIMATION-FILL-MODE, ANIMATION-PLAY-STATE
+       ================================================== */
+
+@keyframes move {
+
+    0% {
+        transform: translateX(0);
+        background: red;
+    }
+
+    50% {
+        transform: translateX(100px);
+        background: blue;
+    }
+
+    100% {
+        transform: translateX(200px);
+        background: green;
+    }
+}
+
+.animation {
+    animation-name: move;
+
+    animation-duration: 3s;
+
+    animation-timing-function: ease-in-out;
+
+    animation-delay: 1s;
+
+    animation-iteration-count: infinite;
+
+    animation-direction: alternate;
+
+    animation-fill-mode: forwards;
+
+    animation-play-state: running;
+
+    /* Shorthand */
+    animation: move 3s ease-in-out infinite alternate;
+}
+
+/* ==================================================
+    21. OVERFLOW -> VISIBLE, HIDDEN, SCROLL, AUTO, OVERFLOW-X, OVERFLOW-Y
+       ================================================== */
+
+.overflow {
+    overflow: visible;
+    /* Default */
+
+    overflow: hidden;
+    /* Hide extra content */
+
+    overflow: scroll;
+    /* Always allow scrolling */
+
+    overflow: auto;
+    /* Scroll when needed */
+
+    overflow-x: auto;
+    /* Horizontal control */
+
+    overflow-y: hidden;
+    /* Vertical control */
+}
+
+/* ==================================================
+       22. FILTERS & EFFECTS -> BLUR, GRAYSCALE, BRIGHTNESS, CONTRAST, SATURATE, SEPIA, OPACITY, BACKDROP-FILTER
+       ================================================== */
+
+.filter {
+    filter: blur(2px);
+
+    /* Other filters:
+        grayscale(100%);
+        brightness(150%);
+        contrast(120%);
+        saturate(200%);
+        sepia(100%);
+        */
+
+    opacity: 0.8;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ==================================================
+       23. OBJECT FIT
+       ================================================== */
+
+img {
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+/* ==================================================
+       24. WIDTH, HEIGHT & ASPECT RATIO
+       ================================================== */
+
+.sizing {
+    min-width: 200px;
+
+    max-width: 800px;
+
+    min-height: 100px;
+
+    max-height: 500px;
+
+    aspect-ratio: 16 / 9;
+
+    width: clamp(300px, 80%, 1200px);
+}
+
+/* ==================================================
+       25. CSS MATH FUNCTIONS
+       ================================================== */
+
+.math {
+    width: calc(100% - 40px);
+
+    width: min(100%, 1200px);
+
+    width: max(50%, 300px);
+
+    width: clamp(300px, 80%, 1200px);
+}
+
+/* ==================================================
+       26. CSS LOGICAL PROPERTIES
+       ================================================== */
+
+.logical {
+    margin-inline: 20px;
+
+    padding-block: 30px;
+
+    inline-size: 300px;
+
+    block-size: 200px;
+
+    border-inline-start: 2px solid red;
+}
+
+/* ==================================================
+       27. SCROLL BEHAVIOUR
+       ================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-container {
+    display: flex;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+}
+
+.scroll-item {
+    scroll-snap-align: start;
+}
+
+/* ==================================================
+       28. SPECIFICITY & CASCADE
+       ================================================== */
+
+/*
+       General priority among normal author rules:
+
+       Element selector  -> p
+       Class selector    -> .box
+       ID selector       -> #header
+       Inline style      -> style="..."
+
+       If specificity is equal, later declaration wins.
+
+       !important can override normal declarations,
+       but should generally be avoided.
+    */
+
+/* ==================================================
+       29. RESPONSIVE DESIGN - MOBILE FIRST
+       ================================================== */
+
+/* Default styles are for mobile devices */
+
+.responsive-container {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    width: 100%;
+
+    padding: 15px;
+
+    gap: 20px;
+}
+
+/* Tablet: 768px and above */
+
+@media (min-width: 768px) {
+
+    .responsive-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Desktop: 1024px and above */
+
+@media (min-width: 1024px) {
+
+    .responsive-container {
+        grid-template-columns: repeat(3, 1fr);
+
+        max-width: 1200px;
+
+        margin: auto;
+    }
+
+}
+
+/* ==================================================
+       30. RESPONSIVE TYPOGRAPHY
+       ================================================== */
+
+h1 {
+    /* Minimum 24px, preferred 5vw, maximum 60px */
+    font-size: clamp(24px, 5vw, 60px);
+}
+
+/* ==================================================
+       31. REDUCED MOTION ACCESSIBILITY
+       ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+/* ==================================================
+       32. CURSOR & USER INTERACTION
+       ================================================== */
+
+.button {
+    cursor: pointer;
+    /* Hand cursor */
+
+    user-select: none;
+    /* Prevent text selection */
+
+    pointer-events: auto;
+    /* Enable pointer interaction */
+}
+
+/* ==================================================
+       END OF CSS NOTES
+       ================================================== */
